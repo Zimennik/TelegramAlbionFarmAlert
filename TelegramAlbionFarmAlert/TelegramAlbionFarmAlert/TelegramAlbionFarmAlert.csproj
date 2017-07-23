@@ -126,11 +126,13 @@
     <Compile Include="Commands\Core\CommandManager.cs" />
     <Compile Include="Commands\Core\Invoker.cs" />
     <Compile Include="Commands\HelpCommand.cs" />
+    <Compile Include="CustomUser.cs" />
     <Compile Include="Helper\ButtonRenderer.cs" />
     <Compile Include="ITelegramBotManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TelegramBotCoreManager.cs" />
+    <Compile Include="UserManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

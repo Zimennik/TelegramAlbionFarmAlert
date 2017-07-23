@@ -1,26 +1,23 @@
 ﻿using System;
-using System.Collections.Specialized;
-using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using Telegram.Bot;
 using Telegram.Bot.Types;
-using Telegram.Bot.Types.InlineQueryResults;
-using Telegram.Bot.Types.InputMessageContents;
-using TelegramAlbionFarmAlert;
 using TelegramAlbionFarmAlert.Commands.Core;
 
-namespace TelegramBotApp.Startup
+namespace TelegramAlbionFarmAlert
 {
     public class TelegramBotCoreManager : ITelegramBotManager
     {
         private readonly TelegramBotClient _bot;
+        private readonly UserManager _users;
 
         private readonly Invoker _invoker;
 
         public TelegramBotCoreManager(string token)
         {
             _bot = new TelegramBotClient(token, new WebProxy());
+            _users = new UserManager();
 
             _bot.OnMessage += _bot_OnMessage;
             _bot.OnCallbackQuery += _bot_OnCallbackQuery;
@@ -42,9 +39,24 @@ namespace TelegramBotApp.Startup
         {
             try
             {
+                _users.ConnectUser(user);
+
                 if (textData.StartsWith("/"))
                 {
-                    await _invoker.ExecuteCommandAsync(new CommandArgs(textData, _bot, user));
+                    var currentUser = _users.FindUser(user);
+                    if (currentUser?.CurrentCommand == null)
+                    {
+                        await _invoker.ExecuteCommandAsync(new CommandArgs(textData, _bot, user));
+                    }
+                    else
+                    {
+                        await _bot.SendTextMessageAsync(user.Id,
+                            $"комманда {currentUser.CurrentCommand?.Name ?? "(NULL)"} запущена, отмените её /cancel");
+                    }
+                }
+                else
+                {
+                    
                 }
             }
             catch (NotSupportedException ex)

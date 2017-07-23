@@ -18,22 +18,16 @@ namespace TelegramAlbionFarmAlert.Commands
 
         protected override async Task CoreStartExecuteAsync(CommandArgs args)
         {
-            var test = new Dictionary<string, string>();
-            test.Add("test", "/test");
-            test.Add("test2", "/test2");
-            test.Add("test3", "/test3");
-            test.Add("test4", "/test4");
-            test.Add("test5", "/test4");
-            test.Add("test6", "/test4");
-            test.Add("test7", "/test4");
-            test.Add("test8", "/test4");
-            test.Add("test9", "/test4");
-            test.Add("test0", "/test4");
-            test.Add("test10", "/test4");
-            test.Add("test11", "/test4");
-            test.Add("test12", "/test4");
-            await args.Bot.SendTextMessageAsync(args.User.Id, "test", ParseMode.Markdown, false, false,
-                0, ButtonRenderer.DrawMarkupButtons(test,5));
+            var helpCommand = new Dictionary<string, string>
+            {
+                {"создать остров", "/create_island"},
+                {"удалить остров", "/delete_island"},
+                {"создать таймер", "/create_timer"},
+                {"удалить таймер", "/delete_timer"},
+                {"список таймеров", "/get_timers_list"}
+            };
+            await args.Bot.SendTextMessageAsync(args.User.Id, "Список доступных команд", ParseMode.Markdown, false, false,
+                0, ButtonRenderer.DrawMarkupButtons(helpCommand, 2));
            
         }
 
