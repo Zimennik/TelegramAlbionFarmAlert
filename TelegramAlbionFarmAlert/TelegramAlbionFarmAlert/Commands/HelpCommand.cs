@@ -23,8 +23,17 @@ namespace TelegramAlbionFarmAlert.Commands
             test.Add("test2", "/test2");
             test.Add("test3", "/test3");
             test.Add("test4", "/test4");
+            test.Add("test5", "/test4");
+            test.Add("test6", "/test4");
+            test.Add("test7", "/test4");
+            test.Add("test8", "/test4");
+            test.Add("test9", "/test4");
+            test.Add("test0", "/test4");
+            test.Add("test10", "/test4");
+            test.Add("test11", "/test4");
+            test.Add("test12", "/test4");
             await args.Bot.SendTextMessageAsync(args.User.Id, "test", ParseMode.Markdown, false, false,
-                0, ButtonRenderer.DrawMarkupButtons(test));
+                0, ButtonRenderer.DrawMarkupButtons(test,5));
            
         }
 

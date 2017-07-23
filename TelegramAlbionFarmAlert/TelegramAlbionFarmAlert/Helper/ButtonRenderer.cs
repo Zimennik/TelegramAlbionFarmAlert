@@ -15,12 +15,17 @@ namespace TelegramAlbionFarmAlert.Helper
             if (columnCount < 1)
                 throw new ArgumentException("кол-во не может быть < 1!");
 
-            var result = new InlineKeyboardMarkup { InlineKeyboard = new InlineKeyboardButton[buttons.Count / columnCount][] };
-            for (int i = 0; i < buttons.Count / columnCount; i++)
+            var count = (int) Math.Ceiling((double) buttons.Count / columnCount);
+            
+            var result = new InlineKeyboardMarkup
+            {
+                InlineKeyboard = new InlineKeyboardButton[count][]
+            };
+            for (int i = 0; i < count; i++)
             {
                 result.InlineKeyboard[i] = buttons
-                    .Take(columnCount)
                     .Skip(i * columnCount)
+                    .Take(columnCount)
                     .Select(x => new InlineKeyboardCallbackButton(x.Key, x.Value))
                     .ToArray();
 
