@@ -40,7 +40,7 @@ TestResult.xml
 [Rr]eleasePS/
 dlldata.c
 
-# DNX
+# DNXF
 project.lock.json
 artifacts/
 
@@ -199,9 +199,6 @@ Backup*/
 UpgradeLog*.XML
 UpgradeLog*.htm
 
-# SQL Server files
-*.mdf
-*.ldf
 
 # Business Intelligence projects
 *.rdl.data

@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TelegramAlbionFarmAlert.Commands.Core;
+using TelegramAlbionFarmAlert.Db;
 
 namespace TelegramAlbionFarmAlert.Commands
 {
@@ -20,9 +22,18 @@ namespace TelegramAlbionFarmAlert.Commands
 
         public override async Task InputExecuteAsync(CommandArgs args)
         {
-            await args.Bot.SendTextMessageAsync(args.User.Id, args.UserTextInput);
+            using (var db = new AppDataEntities())
+            {
+                db.Island.Add(new Island
+                {
+                    
+                    Name = args.UserTextInput
+                });
+                await db.SaveChangesAsync();
+            }
 
             await EndExecuteAsync(args);
+            await args.Bot.SendTextMessageAsync(args.User.Id, $"Остров {args.UserTextInput} успешно сохранен!");
         }
     }
 }

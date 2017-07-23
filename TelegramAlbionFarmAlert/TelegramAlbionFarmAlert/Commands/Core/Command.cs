@@ -48,7 +48,6 @@ namespace TelegramAlbionFarmAlert.Commands.Core
             try
             {
                 await EndCoreExecuteAsync(args);
-                await args.Bot.SendTextMessageAsync(args.User.Id, $"Команда {Name} успешно завершена!");
             }
             finally
             {
