@@ -10,6 +10,8 @@ namespace TelegramAlbionFarmAlert.Commands.Core
         public string Name { get; }
         public event EventHandler OnComplete;
 
+        public virtual bool IsSystem => false;
+
         protected Command(string name, bool needCancel)
         {
             Name = name;
@@ -36,11 +38,17 @@ namespace TelegramAlbionFarmAlert.Commands.Core
             }
         }
 
+        public virtual Task InputExecuteAsync(CommandArgs args)
+        {
+            return Task.CompletedTask;
+        }
+
         public async Task EndExecuteAsync(CommandArgs args)
         {
             try
             {
                 await EndCoreExecuteAsync(args);
+                await args.Bot.SendTextMessageAsync(args.User.Id, $"Команда {Name} успешно завершена!");
             }
             finally
             {

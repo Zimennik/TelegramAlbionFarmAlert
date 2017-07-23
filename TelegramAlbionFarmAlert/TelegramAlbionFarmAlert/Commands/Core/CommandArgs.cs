@@ -6,14 +6,14 @@ namespace TelegramAlbionFarmAlert.Commands.Core
     public class CommandArgs
     {
         public TelegramBotClient Bot { get; }
-        public User User { get; }
-        public string Name { get; set; }
+        public CustomUser User { get; }
+        public string UserTextInput { get; set; }
 
-        public CommandArgs(string name, TelegramBotClient bot, User user)
+        public CommandArgs(string userTextInput, TelegramBotClient bot, CustomUser user)
         {
             Bot = bot;
             User = user;
-            Name = name;
+            UserTextInput = userTextInput;
         }
     }
 }

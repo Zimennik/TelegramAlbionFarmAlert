@@ -26,7 +26,7 @@ namespace TelegramAlbionFarmAlert
                     var currentUser = e.NewItems[0] as CustomUser;
                     if (currentUser != null)
                     {
-                        Console.WriteLine($"User {currentUser.CurrentUser.Username} connected");
+                        Console.WriteLine($"User {currentUser.Username} connected");
                     }
                 }
             }
@@ -34,14 +34,14 @@ namespace TelegramAlbionFarmAlert
 
         public CustomUser FindUser(User user)
         {
-            return _users.FirstOrDefault(x => x.CurrentUser == user);
+            return _users.FirstOrDefault(x => x.Id == user.Id);
         }
 
         public void ConnectUser(User user)
         {
             lock (_lock)
             {
-                if (_users.All(x => x.CurrentUser.Id != user.Id))
+                if (_users.All(x => x.Id != user.Id))
                 {
                     _users.Add(new CustomUser(user));
                 }

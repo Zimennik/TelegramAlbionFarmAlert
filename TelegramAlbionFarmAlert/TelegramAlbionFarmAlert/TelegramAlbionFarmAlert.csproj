@@ -121,10 +121,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\CancelCommand.cs" />
     <Compile Include="Commands\Core\Command.cs" />
     <Compile Include="Commands\Core\CommandArgs.cs" />
     <Compile Include="Commands\Core\CommandManager.cs" />
+    <Compile Include="Commands\Core\CommandNames.cs" />
     <Compile Include="Commands\Core\Invoker.cs" />
+    <Compile Include="Commands\CreateIslandCommand.cs" />
     <Compile Include="Commands\HelpCommand.cs" />
     <Compile Include="CustomUser.cs" />
     <Compile Include="Helper\ButtonRenderer.cs" />

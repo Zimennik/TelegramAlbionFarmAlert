@@ -20,7 +20,7 @@ namespace TelegramAlbionFarmAlert.Commands
         {
             var helpCommand = new Dictionary<string, string>
             {
-                {"создать остров", "/create_island"},
+                {"создать остров", CommandNames.CreateIsland},
                 {"удалить остров", "/delete_island"},
                 {"создать таймер", "/create_timer"},
                 {"удалить таймер", "/delete_timer"},

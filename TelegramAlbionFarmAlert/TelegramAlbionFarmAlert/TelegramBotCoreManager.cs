@@ -41,12 +41,16 @@ namespace TelegramAlbionFarmAlert
             {
                 _users.ConnectUser(user);
 
+                var currentUser = _users.FindUser(user);
+
+                if (currentUser == null)
+                    throw new ArgumentException($"User {user.Username} not found");
+
                 if (textData.StartsWith("/"))
                 {
-                    var currentUser = _users.FindUser(user);
-                    if (currentUser?.CurrentCommand == null)
+                    if (currentUser.CurrentCommand == null || textData.StartsWith(CommandNames.Cancel))
                     {
-                        await _invoker.ExecuteCommandAsync(new CommandArgs(textData, _bot, user));
+                        await _invoker.ExecuteCommandAsync(new CommandArgs(textData, _bot, currentUser));
                     }
                     else
                     {
@@ -56,7 +60,7 @@ namespace TelegramAlbionFarmAlert
                 }
                 else
                 {
-                    
+                    await _invoker.ExecuteCommandArgsAsync(new CommandArgs(textData, _bot, currentUser));
                 }
             }
             catch (NotSupportedException ex)
