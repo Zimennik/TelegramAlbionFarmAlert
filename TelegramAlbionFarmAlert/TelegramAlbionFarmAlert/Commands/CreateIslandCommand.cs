@@ -22,14 +22,12 @@ namespace TelegramAlbionFarmAlert.Commands
 
         public override async Task InputExecuteAsync(CommandArgs args)
         {
-            using (var db = new AppDataEntities())
+            //todo save
+
+            using (var db = new XmlDbProvider())
             {
-                db.Island.Add(new Island
-                {
-                    
-                    Name = args.UserTextInput
-                });
-                await db.SaveChangesAsync();
+                db.AddIsland(args.UserTextInput);
+                db.SaveChanges();
             }
 
             await EndExecuteAsync(args);
