@@ -20,13 +20,11 @@ namespace TelegramAlbionFarmAlert.Commands
         {
             var helpCommand = new Dictionary<string, string>
             {
-                {"список островов", CommandNames.GetIslands},
                 {"создать остров", CommandNames.CreateIsland},
                 {"удалить остров", "/delete_island"},
                 {"создать таймер", "/create_timer"},
                 {"удалить таймер", "/delete_timer"},
                 {"список таймеров", "/get_timers_list"}
-                
             };
             await args.Bot.SendTextMessageAsync(args.User.Id, "Список доступных команд", ParseMode.Markdown, false, false,
                 0, ButtonRenderer.DrawMarkupButtons(helpCommand, 2));

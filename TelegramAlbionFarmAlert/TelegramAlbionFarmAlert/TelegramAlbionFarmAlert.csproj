@@ -154,10 +154,9 @@
     <Compile Include="Commands\Core\CommandNames.cs" />
     <Compile Include="Commands\Core\Invoker.cs" />
     <Compile Include="Commands\CreateIslandCommand.cs" />
-    <Compile Include="Commands\CreateTimerCommand.cs" />
-    <Compile Include="Commands\GetIslandsCommand.cs" />
     <Compile Include="Commands\HelpCommand.cs" />
     <Compile Include="CustomUser.cs" />
+<<<<<<< HEAD
 <<<<<<< HEAD
     <Compile Include="Db\AppDataModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -188,6 +187,8 @@
     </Compile>
 =======
     <Compile Include="Db\Model\Island.cs" />
+=======
+>>>>>>> Revert "GetIslandsCommand"
     <Compile Include="Db\XmlDbProvider.cs" />
 >>>>>>> 6cc6a391a10b457234aa4e6c031dfeebae559377
     <Compile Include="Helper\ButtonRenderer.cs" />
