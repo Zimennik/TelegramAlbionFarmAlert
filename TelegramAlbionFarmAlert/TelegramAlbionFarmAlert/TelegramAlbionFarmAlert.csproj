@@ -154,11 +154,8 @@
     <Compile Include="Commands\Core\CommandNames.cs" />
     <Compile Include="Commands\Core\Invoker.cs" />
     <Compile Include="Commands\CreateIslandCommand.cs" />
-    <Compile Include="Commands\CreateTimerCommand.cs" />
-    <Compile Include="Commands\GetIslandsCommand.cs" />
     <Compile Include="Commands\HelpCommand.cs" />
     <Compile Include="CustomUser.cs" />
-    <Compile Include="Db\Model\Island.cs" />
     <Compile Include="Db\XmlDbProvider.cs" />
     <Compile Include="Helper\ButtonRenderer.cs" />
     <Compile Include="ITelegramBotManager.cs" />
