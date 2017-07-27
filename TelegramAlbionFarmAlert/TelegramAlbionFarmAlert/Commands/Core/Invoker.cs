@@ -55,7 +55,7 @@ namespace TelegramAlbionFarmAlert.Commands.Core
             invoker.SetCommand(new HelpCommand(CommandNames.Help, false));
             invoker.SetCommand(new CreateIslandCommand(CommandNames.CreateIsland, true));
             invoker.SetCommand(new CancelCommand(CommandNames.Cancel, false));
-            invoker.SetCommand(new GetIslandsCommand(CommandNames.GetIslands, false));
+            //invoker.SetCommand(new HelpCommand("/start", false));
 
             return invoker;
         }
