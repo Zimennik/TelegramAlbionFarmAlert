@@ -158,8 +158,38 @@
     <Compile Include="Commands\GetIslandsCommand.cs" />
     <Compile Include="Commands\HelpCommand.cs" />
     <Compile Include="CustomUser.cs" />
+<<<<<<< HEAD
+    <Compile Include="Db\AppDataModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AppDataModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\AppDataModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AppDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\AppDataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AppDataModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Culture.cs">
+      <DependentUpon>AppDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Island.cs">
+      <DependentUpon>AppDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\Timer.cs">
+      <DependentUpon>AppDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Db\UserSubscription.cs">
+      <DependentUpon>AppDataModel.tt</DependentUpon>
+    </Compile>
+=======
     <Compile Include="Db\Model\Island.cs" />
     <Compile Include="Db\XmlDbProvider.cs" />
+>>>>>>> 6cc6a391a10b457234aa4e6c031dfeebae559377
     <Compile Include="Helper\ButtonRenderer.cs" />
     <Compile Include="ITelegramBotManager.cs" />
     <Compile Include="Program.cs" />
@@ -169,7 +199,33 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <EntityDeploy Include="Db\AppDataModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AppDataModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Db\AppDataModel.edmx.diagram">
+      <DependentUpon>AppDataModel.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Db\AppData.mdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Db\AppDataModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AppDataModel.edmx</DependentUpon>
+      <LastGenOutput>AppDataModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Db\AppDataModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AppDataModel.edmx</DependentUpon>
+      <LastGenOutput>AppDataModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Db\AppData_log.ldf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DependentUpon>AppData.mdf</DependentUpon>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
@@ -185,11 +241,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Db\AppData.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
